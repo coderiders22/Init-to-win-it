@@ -13,7 +13,7 @@ It introduces the **Flight Difficulty Score (FDS) and post-analysis operational 
 2. Clone this repository:
 
    ```bash
-   git clone <https://github.com/coderiders22/Init-to-win-it>
+   git clone https://github.com/coderiders22/Init-to-win-it
    ```
 3. Open **Project.ipynb** in Jupyter Notebook.
 4. Run all cells to process the datasets.
@@ -25,14 +25,14 @@ It introduces the **Flight Difficulty Score (FDS) and post-analysis operational 
 
 We built an interactive platform **SkyForce** where you can explore insights and Flight Difficulty Scores.
 
-🔗 [https://skyscore-ua.netlify.app/]
+🔗 https://skyscore-ua.netlify.app/
 
 ### Screenshots  
 ![Welcome Page](assets/screenshots/Welcome.png)  
 ![Home Page](assets/screenshots/home.png)  
 ![About Us Page](assets/screenshots/Aboutus.png)  
 ![Dashboard analytics](assets/screenshots/dashboard.png)   
-![Dashboard Post analytics insights](assets/screenshots/Post.png)  
+![Dashboard Post analytics insights](assets/screenshots/post.png)  
 ![Footer](assets/screenshots/Footer.png)  
 
 Features include:
@@ -46,7 +46,7 @@ Features include:
 ## 🎤 Presentation
 
 You can view our hackathon presentation here:
-🔗 [https://www.canva.com/design/DAG02O7c5M8/aCt_-a3eQy3Px6VgGyMyoQ/edit?utm_content=DAG02O7c5M8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+🔗 https://www.canva.com/design/DAG02O7c5M8/aCt_-a3eQy3Px6VgGyMyoQ/edit?utm_content=DAG02O7c5M8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ---
 
@@ -68,7 +68,7 @@ You can view our hackathon presentation here:
 
 ---
 
-## 👨‍💻 Team
+## 👨‍💻 Team Name : Init-to-win-it
 
 * **Manav Rai**
 * **Uday Chugh** 
