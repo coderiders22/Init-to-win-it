@@ -1533,13 +1533,14 @@ video, .video-container {
 /* Blur the brand section for better visibility over video */
 .footer-brand {
   position: relative;
-  background: rgba(30, 64, 175, 0.9); /* Semi-transparent blue bg */
+  background: rgba(138, 154, 204, 0.95);
   backdrop-filter: blur(10px); /* Blur effect for frosted glass look */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
   border: 1px solid rgba(191, 219, 254, 0.3); /* Subtle blue border */
   padding: 32px;
   border-radius: var(--radius-6);
   z-index: 2; /* Above overlay */
+  background: linear-gradient(rgba(118, 154, 221, 0.6), rgba(147, 187, 255, 0.6)), url('assets/images/hero-bg.jpg') no-repeat center center/cover;
 }
 
 .footer-brand .logo img {
@@ -1573,6 +1574,8 @@ video, .video-container {
   .footer-brand {
     backdrop-filter: blur(5px); /* Reduce blur on mobile for performance */
     padding: 20px;
+    background: rgba(138, 154, 204, 0.95);
+    background: linear-gradient(rgba(118, 154, 221, 0.6), rgba(147, 187, 255, 0.6)), url('assets/images/hero-bg.jpg') no-repeat center center/cover;
   }
 }
 
