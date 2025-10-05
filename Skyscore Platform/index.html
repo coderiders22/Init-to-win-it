@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title> SkyScore - Home</title>
+  <meta name="title" content="SkyScore - Home">
+  <meta name="description" content="Data-driven Flight Difficulty Analytics for United Airlines">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body id="top">
+
+  <!-- Preloader -->
+  <div class="preloaders" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="./assets/images/logo2.png" width="100" height="100" alt="SkyScore Home">
+      </a>
+  
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo2.png" width="100" height="100" alt="SkyScore Home">
+          </a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <div class="nav-right">
+        <ul class="navbar-list">
+          <li class="navbar-item logged-in">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item logged-in">
+            <a href="about.html" class="navbar-link title-md">About</a>
+          </li>
+          <!-- <li class="navbar-item logged-in"> -->
+            <!-- <a href="dashboard.html" class="navbar-link title-md">Dashboard</a>
+          </li> -->
+          <button id="logoutButton" style="display:none;" class="btn has-before title-md">Logout</button>
+  
+          <li class="navbar-item logged-out">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="about.html" class="navbar-link title-md">About</a>
+          </li>
+         <!-- <li class="navbar-item logged-out">
+            <a href="login.html" class="navbar-link title-md">Login</a>
+          </li>
+          <script src="./assets/js/index.js"></script>
+          <li class="navbar-item logged-out">
+            <a href="signup.html" class="navbar-link title-md">Signup</a>
+          </li> -->
+          <li class="navbar-item logged-out">
+            <a href="dashboard.html" class="btn has-before title-md">Check Flight Insights</a>
+          </li>
+        </ul>
+        </div>
+
+        <ul class="social-list">
+          <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        </ul>
+      </nav>
+  
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+  
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+  
+
+  <main>
+    <article>
+
+      <!-- HERO -->
+      <section class="heroes">
+        <video autoplay muted loop id="bg-video">
+          <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="container heroes-content">
+          <h1>Welcome to SkyScore</h1>
+          <p>Smarter Insights for Smoother Flights</p>
+          <a href="dashboard.html" class="btn btn-primary">Discover Insights</a>
+        </div>
+        <div class="overlay"></div>
+      </section>
+      
+
+      <!-- ABOUT -->
+      <section class="section about" aria-labelledby="about-label" style="background-color: #F5FAFF; color: #1E3A8A;" id="about">
+        <div class="container">
+          <div class="about-content">
+            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left" style="color: #2563EB;">
+              About Us
+            </p>
+            <h2 class="headline-md" data-reveal="left" style="color: #1E40AF;">
+              Revolutionizing Airline Operations
+            </h2>
+            <p class="section-text" data-reveal="left">
+              SkyScore is a data-driven platform that quantifies the operational difficulty of flights for United Airlines.
+              By analyzing flight-level, baggage, and passenger data, we provide proactive insights to ensure smoother
+              turnarounds, efficient resource allocation, and on-time departures.
+            </p>
+      
+            <ul class="tab-list" data-reveal="left">
+              <li><button class="tab-btn active" style="background-color: #BFDBFE; color: #1E3A8A;">Vision</button></li>
+              <li><button class="tab-btn" style="background-color: #DBEAFE; color: #1E3A8A;">Mission</button></li>
+              <li><button class="tab-btn" style="background-color: #EFF6FF; color: #1E3A8A;">Strategy</button></li>
+            </ul>
+      
+            <p class="tab-text" data-reveal="left">
+              To empower frontline teams with predictive tools that identify high-difficulty flights and streamline
+              airport operations for enhanced customer experience.
+            </p>
+      
+            <div class="wrapper">
+              <ul class="about-list">
+                <li class="about-item" data-reveal="left"><ion-icon name="checkmark-circle-outline" style="color: #2563EB;"></ion-icon>
+                  <span class="span">Data-driven flight difficulty scoring</span>
+                </li>
+                <li class="about-item" data-reveal="left"><ion-icon name="checkmark-circle-outline" style="color: #2563EB;"></ion-icon>
+                  <span class="span">Proactive resource allocation</span>
+                </li>
+                <li class="about-item" data-reveal="left"><ion-icon name="checkmark-circle-outline" style="color: #2563EB;"></ion-icon>
+                  <span class="span">Reducing delays & operational risk</span>
+                </li>
+                <li class="about-item" data-reveal="left"><ion-icon name="checkmark-circle-outline" style="color: #2563EB;"></ion-icon>
+                  <span class="span">Supporting smoother customer experience</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+      
+          <figure class="about-banner" data-reveal="right">
+            <img src="./assets/images/airport.jpg" width="554" height="678" loading="lazy" alt="about banner"
+              class="w-100" style="border: 5px solid #BFDBFE; border-radius: 10px; margin-bottom: 150px;">
+          </figure>
+        </div>
+      </section>
+      
+
+      <section class="section listing" aria-labelledby="listing-label">
+        <div class="container">
+            <ul class="grid-list horizontal">
+                <li>
+                    <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Analysis Overview</p>
+                    <h2 class="headline-md" data-reveal="left">Flight Difficulty Insights</h2>
+                </li>
+                <li>
+                  <div class="card-icon">
+                    <img src="./assets/images/1.png" width="250" height="250" loading="lazy" alt="Healthy Lung Waveform">
+                
+                    <div class="listing-card" data-reveal="bottom">
+                        
+                        <div>
+                            <h3 class="headline-sm card-title">On-time Performance</h3>
+                            <p class="card-text">
+                              Analyze delays and departures to identify operational bottlenecks.
+                            </p>
+                        </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-icon">
+                    <img src="./assets/images/2.png" width="250" height="250" loading="lazy" alt="Diseased Lung Waveform">
+               
+                    <div class="listing-card" data-reveal="bottom">
+                        
+                        <div>
+                            <h3 class="headline-sm card-title">Passenger & Baggage Load</h3>
+                            <p class="card-text">
+                              Compare passenger loads and baggage ratios to understand flight complexity.
+                            </p>
+                            
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li>
+                  <div class="card-icon">
+                    <img src="./assets/images/3.png" width="300" height="300" loading="lazy" alt="Statistical Graph">
+               
+                    <div class="listing-card" data-reveal="bottom">
+                        
+                        <div>
+                            <h3 class="headline-sm card-title">Difficulty Score Trends</h3>
+                            <p class="card-text">
+                              Visualize daily rankings and categories of flights: Easy, Medium, Difficult.
+                            </p>
+                           
+                        </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <style>
+    /* General styling for horizontal layout */
+    .grid-list.horizontal {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: nowrap;
+      align-items: flex-start; /* Ensures content is horizontally aligned */
+    }
+    
+    .grid-list.horizontal li {
+      flex: 1; /* Ensures equal spacing for items */
+      text-align: center;
+    }
+    
+    .listing-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem; /* Increased padding for larger image appearance */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .card-icon img {
+      max-width: 90%; /* Makes images responsive while occupying more space */
+      height: auto;
+      margin: 0 auto; /* Centers the image */
+    }
+    
+    .card-title {
+      font-size: 1.8rem;
+      margin-top: 1.5rem;
+    }
+    
+    .card-text {
+      font-size: 1.4rem;
+      color: #555;
+    }
+    
+    .section-subtitle, .headline-md {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    /* Adjustments for responsiveness */
+    @media (max-width: 768px) {
+      .grid-list.horizontal {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .grid-list.horizontal li {
+        width: 80%;
+        margin-bottom: 2rem;
+      }
+    
+      .card-icon img {
+        max-width: 100%;
+      }
+    }
+    </style>
+      
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+            <h2 class="cta-heading" data-reveal="fade-up">Ready to Optimize Operations?</h2>
+            <p class="cta-subtext" data-reveal="fade-up">Use SkyScore to identify challenging flights and improve on-time performance with smarter resource planning.</p>
+            <a href="dashboard.html" class="btn btn-primary cta-btn glow-btn" data-reveal="fade-up">
+                <i class="fas fa-user-plus"></i> Get Started
+            </a>
+        </div>
+      </section>
+    
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <video autoplay muted loop id="footer-video">
+      <source src="./assets/videos/footer.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+
+      <div class="section footer-top">
+
+        <div class="footer-brand" data-reveal="bottom">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo2.png" width="190" height="190" loading="lazy" alt="SkyScore">
+          </a>
+
+          <ul class="contact-list has-after">
+            <li class="contact-item">
+              <div class="item-icon"><ion-icon name="mail-open-outline"></ion-icon></div>
+              <div>
+                <p>Main Email : <a href="mailto:contact@skyscore.com" class="contact-link">contact@skyscore.com</a></p>
+                <p>Inquiries : <a href="mailto:info@skyscore.com" class="contact-link">info@skyscore.com</a></p>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="item-icon"><ion-icon name="call-outline"></ion-icon></div>
+              <div><p>Mobile : <a href="tel:+918054776034" class="contact-link">+91 8054776034</a></p></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-list" data-reveal="bottom">
+          <p class="headline-sm footer-list-title">About Us</p>
+          <p class="text">
+            SkyScore helps airlines identify operationally challenging flights by leveraging flight, baggage, and passenger data.
+            Our mission: smarter planning, fewer delays, and better passenger experience.
+          </p>
+          <address class="address"><ion-icon name="map-outline"></ion-icon>
+            <span class="text">Chicago O'Hare International Airport, ORD</span>
+          </address>
+        </div>
+
+        <ul class="footer-list" data-reveal="bottom">
+          <li><p class="headline-sm footer-list-title">Useful Links</p></li>
+          <li><a href="index.html" class="text footer-link">Home</a></li>
+          <li><a href="about.html" class="text footer-link">About Us</a></li>
+     
+        </ul>
+
+        <div class="footer-list" data-reveal="bottom">
+          <p class="headline-sm footer-list-title">Subscribe</p>
+          <form action="" class="footer-form">
+            <input type="email" name="email" placeholder="Email" class="input-field title-lg">
+            <button type="submit" class="btn has-before title-md">Subscribe</button>
+          </form>
+          <p class="text">Get the latest flight analytics insights directly to your inbox.</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="text copyright">
+          &copy; SkyScore 2025 | All Rights Reserved
+        </p>
+        <ul class="social-list">
+          <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+  
+
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

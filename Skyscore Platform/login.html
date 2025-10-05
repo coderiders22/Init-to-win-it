@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>SkyScore - Login</title>
+  <meta name="title" content="AuscultaTech- home">
+  <meta name="description" content="">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #PRELOADER
+  -->
+
+ 
+  <div class="preloaders" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+
+
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="./assets/images/logo2.png" width="100" height="100" alt="AuscultaTechhome">
+      </a>
+  
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo2.png" width="100" height="100" alt="AuscultaTechhome">
+          </a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+  
+        <ul class="navbar-list">
+          <!-- Links visible after login -->
+          <li class="navbar-item logged-in">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item logged-in">
+            <a href="about.html" class="navbar-link title-md">About</a>
+          </li>
+          <li class="navbar-item logged-in">
+            <a href="dashboard.html" class="navbar-link title-md">Dashboard</a>
+          </li>
+          <!-- Add login and logout buttons -->
+
+<button id="logoutButton" style="display:none;" class="btn has-before title-md">Logout</button>
+
+  
+          <!-- Links visible before login -->
+          <li class="navbar-item logged-out">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="about.html" class="navbar-link title-md">About</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="login.html" class="navbar-link title-md">Login</a>
+          </li>
+          
+          <script src="./assets/js/index.js"></script>
+          <li class="navbar-item logged-out">
+            <a href="signup.html" class="navbar-link title-md">Signup</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="signup.html"  class="btn has-before title-md">Check Flight Insights</a>
+          </li>
+        </ul>
+        <ul class="social-list">
+          <!-- Social Links -->
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+  
+     
+  
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+  
+
+  
+
+
+  <section class="login">
+    <div class="container">
+      <img src="assets/videos/5.gif" alt="Animated Icon" class="animated-icon">
+      <h2>Login to Your Account</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail"><i class="fas fa-envelope"></i> Email Address</label>
+          <input type="email" id="loginEmail" name="loginEmail" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      <div class="button-group">
+      
+        <p class="redirect">Don't have an account? <a href="signup.html" class="btn btn-secondary">Sign Up</a><br> </p> 
+      </div>
+
+    </div>
+  </section>
+  
+      <!-- End of Login Section -->
+  
+
+  
+  
+  <style>
+ /* Login Section - Transparent Gradient Background */
+.login {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, rgba(30, 58, 138, 0.7), rgba(96, 165, 250, 0.4)); /* Semi-transparent blue gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height for centering */
+  position: relative; /* For potential overlays */
+}
+
+.login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(30, 58, 138, 0.2)); /* Additional subtle transparent overlay for depth */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.login > .container {
+  position: relative;
+  z-index: 1; /* Ensure container is above overlay */
+}
+
+/* Rest of the styles remain the same for consistency */
+.login h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #000000; /* White for contrast on blue bg */
+  position: relative;
+  font-family: var(--ff-oswald); /* Matching theme font */
+}
+
+.login h2::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background-color: #BFDBFE; /* Light blue underline */
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+.login .container {
+  background-color: rgba(245, 250, 255, 0.9); /* Slightly transparent light blue for glass effect */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2); /* Blue-tinted shadow */
+  width: 100%;
+  max-width: 500px;
+  margin-top: 140px; /* Keep existing margin for header offset */
+  border: 1px solid rgba(191, 219, 254, 0.5); /* Semi-transparent light blue border */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.login form {
+  width: 100%;
+  background-color: rgba(239, 246, 255, 0.95); /* More transparent inner form */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.1); /* Softer inner shadow */
+  animation: slideUp 1s ease-out;
+  backdrop-filter: blur(5px); /* Subtle blur for form */
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.login .btn-primary {
+  padding: 0.75rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #2563EB, #60A5FA); /* Blue gradient button */
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-weight: var(--fw-700);
+  width: 100%; /* Full width for form button */
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.login .btn-primary:hover {
+  background: linear-gradient(to right, #1E40AF, #3B82F6); /* Darker blue on hover */
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+}
+
+/* Form Inputs */
+.login .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.login .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #1E3A8A; /* Dark blue labels */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login .form-group label i {
+  color: #2563EB; /* Blue icons */
+  font-size: 1.2rem;
+}
+
+.login .form-group input[type="email"],
+.login .form-group input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #BFDBFE; /* Light blue border */
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9); /* Transparent white input bg */
+  font-size: 1rem;
+}
+
+.login .form-group input[type="email"]:focus,
+.login .form-group input[type="password"]:focus {
+  border-color: #2563EB; /* Blue focus border */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Animated Icon */
+.login .animated-icon {
+  display: block;
+  margin: 0 auto 1.5rem; /* Space below icon */
+  width: 60px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Subtle shadow for icon */
+}
+
+@media (min-width: 768px) {
+  .login .animated-icon {
+    width: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login .animated-icon {
+    width: 100px;
+  }
+}
+
+/* Redirect Links */
+.login .redirect {
+  text-align: center;
+  margin-top: 1rem;
+  color: #2563EB; /* Blue text */
+  font-size: 1.4rem;
+}
+
+.login .redirect a {
+  color: #1E40AF; /* Darker blue link */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login .redirect a:hover {
+  text-decoration: underline;
+  color: #3B82F6; /* Lighter blue on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .login {
+    padding: 2rem 0;
+  }
+  
+  .login .container,
+  .login form {
+    padding: 1.5rem;
+    margin-top: 100px; /* Adjust for smaller screens */
+    backdrop-filter: blur(5px); /* Reduce blur on mobile */
+  }
+  
+  .login h2 {
+    font-size: 1.8rem;
+  }
+}
+/* Signup Button Styles - Matching Blue Theme */
+.login .button-group {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.login .btn-secondary {
+  padding: 0.75rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  border: 2px solid #BFDBFE; /* Light blue border */
+  cursor: pointer;
+  background: transparent;
+  color: #2563EB; /* Blue text */
+  transition: all 0.3s ease;
+  font-weight: var(--fw-700);
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(191, 219, 254, 0.3);
+  width: 100%;
+  text-align: center;
+}
+
+.login .btn-secondary:hover {
+  background: linear-gradient(to right, #BFDBFE, #DBEAFE); /* Light blue fill on hover */
+  color: #1E3A8A; /* Darker blue text */
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Responsive for Button Group */
+@media (max-width: 768px) {
+  .login .button-group {
+    margin: 1rem 0;
+  }
+  
+  .login .btn-secondary {
+    font-size: 1.2rem;
+    padding: 0.7rem 1.8rem;
+  }
+}
+    </style>
+</article>
+</main>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+        <!-- CTA -->
+        <section class="cta">
+          <div class="container">
+              <h2 class="cta-heading" data-reveal="fade-up">Ready to Optimize Operations?</h2>
+              <p class="cta-subtext" data-reveal="fade-up">Use SkyScore to identify challenging flights and improve on-time performance with smarter resource planning.</p>
+              <a href="signup.html" class="btn btn-primary cta-btn glow-btn" data-reveal="fade-up">
+                  <i class="fas fa-user-plus"></i> Get Started
+              </a>
+          </div>
+        </section>
+      
+      </article>
+    </main>
+  
+    <!-- FOOTER -->
+    <footer class="footer">
+      <video autoplay muted loop id="footer-video">
+        <source src="./assets/videos/footer.mp4" type="video/mp4">
+      </video>
+      <div class="container">
+  
+        <div class="section footer-top">
+  
+          <div class="footer-brand" data-reveal="bottom">
+            <a href="#" class="logo">
+              <img src="./assets/images/logo2.png" width="190" height="190" loading="lazy" alt="SkyScore">
+            </a>
+  
+            <ul class="contact-list has-after">
+              <li class="contact-item">
+                <div class="item-icon"><ion-icon name="mail-open-outline"></ion-icon></div>
+                <div>
+                  <p>Main Email : <a href="mailto:contact@skyscore.com" class="contact-link">contact@skyscore.com</a></p>
+                  <p>Inquiries : <a href="mailto:info@skyscore.com" class="contact-link">info@skyscore.com</a></p>
+                </div>
+              </li>
+  
+              <li class="contact-item">
+                <div class="item-icon"><ion-icon name="call-outline"></ion-icon></div>
+                <div><p>Mobile : <a href="tel:+918054776034" class="contact-link">+91 8054776034</a></p></div>
+              </li>
+            </ul>
+          </div>
+  
+          <div class="footer-list" data-reveal="bottom">
+            <p class="headline-sm footer-list-title">About Us</p>
+            <p class="text">
+              SkyScore helps airlines identify operationally challenging flights by leveraging flight, baggage, and passenger data.
+              Our mission: smarter planning, fewer delays, and better passenger experience.
+            </p>
+            <address class="address"><ion-icon name="map-outline"></ion-icon>
+              <span class="text">Chicago O'Hare International Airport, ORD</span>
+            </address>
+          </div>
+  
+          <ul class="footer-list" data-reveal="bottom">
+            <li><p class="headline-sm footer-list-title">Useful Links</p></li>
+            <li><a href="index.html" class="text footer-link">Home</a></li>
+            <li><a href="about.html" class="text footer-link">About Us</a></li>
+            <li><a href="login.html" class="text footer-link">Login</a></li>
+            <li><a href="signup.html" class="text footer-link">Sign Up</a></li>
+          </ul>
+  
+          <div class="footer-list" data-reveal="bottom">
+            <p class="headline-sm footer-list-title">Subscribe</p>
+            <form action="" class="footer-form">
+              <input type="email" name="email" placeholder="Email" class="input-field title-lg">
+              <button type="submit" class="btn has-before title-md">Subscribe</button>
+            </form>
+            <p class="text">Get the latest flight analytics insights directly to your inbox.</p>
+          </div>
+  
+        </div>
+  
+        <div class="footer-bottom">
+          <p class="text copyright">
+            &copy; SkyScore 2025 | All Rights Reserved
+          </p>
+          <ul class="social-list">
+            <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          </ul>
+        </div>
+  
+      </div>
+    </footer>
+  
+
+
+
+
+  
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/login.js"></script>
+  <script src="./assets/js/index.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

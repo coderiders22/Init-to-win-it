@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>SkyScore - Dashboard</title>
+  <meta name="title" content="AuscultaTech- home">
+  <meta name="description" content="">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <div class="preloaders" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #PRELOADER
+  -->
+
+
+
+
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="./assets/images/logo2.png" width="100" height="100" alt="AuscultaTechhome">
+      </a>
+  
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo2.png" width="100" height="100" alt="AuscultaTechhome">
+          </a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+  
+        <ul class="navbar-list">
+          <!-- Links visible after login -->
+          <li class="navbar-item logged-in">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item logged-in">
+            <a href="about.html" class="navbar-link title-md">About</a>
+          </li>
+          <li class="navbar-item logged-in">
+            <a href="dashboard.html" class="navbar-link title-md">Dashboard</a>
+          </li>
+          <!-- Add login and logout buttons -->
+
+<button id="logoutButton" style="display:none;" class="btn has-before title-md">Logout</button>
+
+  
+          <!-- Links visible before login -->
+          <li class="navbar-item logged-out">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="about.html" class="navbar-link title-md">About</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="login.html" class="navbar-link title-md">Login</a>
+          </li>
+          
+          <script src="./assets/js/index.js"></script>
+          <li class="navbar-item logged-out">
+            <a href="signup.html" class="navbar-link title-md">Signup</a>
+          </li>
+          <li class="navbar-item logged-out">
+            <a href="signup.html"  class="btn has-before title-md">Check your Health</a>
+          </li>
+        </ul>
+        <ul class="social-list">
+          <!-- Social Links -->
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
+  
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+  
+     
+  
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+  
+
+  
+
+  <section class="dashboard">
+    <div class="container">
+      <img src="assets/videos/6.gif" alt="Animated Icon" class="animated-icon">
+      <h2>Dashboard: <span id="username"></span></h2>
+      <p class="ps">Check Your Health</p>
+      <form id="healthCheckForm">
+        <div class="form-group">
+          <label for="audioFile"><i class="fas fa-upload"></i> Upload Your Audio File</label>
+          <input type="file" id="audioFile" name="audioFile" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="testButton" disabled>Test</button>
+          <button type="button" class="btn btn-secondary" id="logoutButton">Logout</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audioFileInput = document.getElementById("audioFile");
+      const testButton = document.getElementById("testButton");
+      const logoutButton = document.getElementById("logoutButton");
+  
+      // Disable the "Test" button initially
+      testButton.disabled = true;
+  
+      // Enable the "Test" button only when a valid .wav file is uploaded
+      audioFileInput.addEventListener("change", function () {
+        const file = audioFileInput.files[0];
+  
+        if (file) {
+          // Get the file extension
+          const fileExtension = file.name.split('.').pop().toLowerCase();
+  
+          if (fileExtension === 'wav') {
+            // Enable the Test button
+            testButton.disabled = false;
+          } else {
+            alert("Only .wav files are allowed!");
+            audioFileInput.value = ""; // Clear the input
+            testButton.disabled = true; // Keep the Test button disabled
+          }
+        } else {
+          testButton.disabled = true; // Disable the button if no file is selected
+        }
+      });
+  
+      // Redirect to the home page on logout
+      logoutButton.addEventListener("click", function () {
+        window.location.href = "index.html"; // Replace 'home.html' with your actual home page URL
+      });
+    });
+  </script>
+  
+<style>
+    /* Dashboard Section */
+.dashboard {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #362f13, #d07474) padding-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ps {
+    text-align: center;
+}
+
+.dashboard h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #E63946;
+  position: relative;
+}
+
+.dashboard h2::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background-color: #E63946;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+.dashboard .container {
+  background: #f5f5f5;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-top: 140px;
+}
+
+.dashboard form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f4f6f9;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: slideUp 1s ease-out;
+}
+
+.dashboard .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.dashboard .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #121211;
+}
+
+.dashboard .form-group input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ce1c1c;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.dashboard .form-group input[type="file"]:focus {
+  border-color: #f29810;
+  outline: none;
+}
+
+.dashboard .btn-primary {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: #1e3c72;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.dashboard .btn-primary:hover {
+  background-color: #ffdd57;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard .btn-secondary {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: #d07474;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.dashboard .btn-secondary:hover {
+  background-color: #ffdd57;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+</style>  
+
+
+
+
+      <!-- 
+        - #HERO
+      -->
+
+      
+     
+  
+  </article>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <video autoplay muted loop id="footer-video">
+    <source src="./assets/videos/footer.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+
+    <div class="section footer-top">
+
+      <div class="footer-brand" data-reveal="bottom">
+        <a href="#" class="logo">
+          <img src="./assets/images/logo2.png" width="190" height="190" loading="lazy" alt="SkyScore">
+        </a>
+
+        <ul class="contact-list has-after">
+          <li class="contact-item">
+            <div class="item-icon"><ion-icon name="mail-open-outline"></ion-icon></div>
+            <div>
+              <p>Main Email : <a href="mailto:contact@skyscore.com" class="contact-link">contact@skyscore.com</a></p>
+              <p>Inquiries : <a href="mailto:info@skyscore.com" class="contact-link">info@skyscore.com</a></p>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="item-icon"><ion-icon name="call-outline"></ion-icon></div>
+            <div><p>Mobile : <a href="tel:+918054776034" class="contact-link">+91 8054776034</a></p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-list" data-reveal="bottom">
+        <p class="headline-sm footer-list-title">About Us</p>
+        <p class="text">
+          SkyScore helps airlines identify operationally challenging flights by leveraging flight, baggage, and passenger data.
+          Our mission: smarter planning, fewer delays, and better passenger experience.
+        </p>
+        <address class="address"><ion-icon name="map-outline"></ion-icon>
+          <span class="text">Chicago O'Hare International Airport, ORD</span>
+        </address>
+      </div>
+
+      <ul class="footer-list" data-reveal="bottom">
+        <li><p class="headline-sm footer-list-title">Useful Links</p></li>
+        <li><a href="index.html" class="text footer-link">Home</a></li>
+        <li><a href="about.html" class="text footer-link">About Us</a></li>
+    
+      </ul>
+
+      <div class="footer-list" data-reveal="bottom">
+        <p class="headline-sm footer-list-title">Subscribe</p>
+        <form action="" class="footer-form">
+          <input type="email" name="email" placeholder="Email" class="input-field title-lg">
+          <button type="submit" class="btn has-before title-md">Subscribe</button>
+        </form>
+        <p class="text">Get the latest flight analytics insights directly to your inbox.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="text copyright">
+        &copy; SkyScore 2025 | All Rights Reserved
+      </p>
+      <ul class="social-list">
+        <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/signup.js"></script>
+  <script src="./assets/js/index.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
