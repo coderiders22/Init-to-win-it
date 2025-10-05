@@ -28,12 +28,12 @@ We built an interactive platform **SkyForce** where you can explore insights and
 🔗 https://skyscore-ua.netlify.app/
 
 ### Screenshots  
-![Welcome Page](assets/screenshots/Welcome.png)  
-![Home Page](assets/screenshots/home.png)  
-![About Us Page](assets/screenshots/Aboutus.png)  
-![Dashboard analytics](assets/screenshots/dashboard.png)   
-![Dashboard Post analytics insights](assets/screenshots/post.png)  
-![Footer](assets/screenshots/Footer.png)  
+![Welcome Page](https://github.com/coderiders22/Init-to-win-it/blob/2ba57f8f5a4ed5b7a65e9ebd0ff0b1cf58b075ff/Skyscore%20Platform/assets/screenshots/Welcome.png)  
+![Home Page](https://github.com/coderiders22/Init-to-win-it/blob/2ba57f8f5a4ed5b7a65e9ebd0ff0b1cf58b075ff/Skyscore%20Platform/assets/screenshots/home.png)  
+![About Us Page](https://github.com/coderiders22/Init-to-win-it/blob/2ba57f8f5a4ed5b7a65e9ebd0ff0b1cf58b075ff/Skyscore%20Platform/assets/screenshots/Aboutus.png)  
+![Dashboard analytics](https://github.com/coderiders22/Init-to-win-it/blob/2ba57f8f5a4ed5b7a65e9ebd0ff0b1cf58b075ff/Skyscore%20Platform/assets/screenshots/dashboard.png)   
+![Dashboard Post analytics insights](https://github.com/coderiders22/Init-to-win-it/blob/2ba57f8f5a4ed5b7a65e9ebd0ff0b1cf58b075ff/Skyscore%20Platform/assets/screenshots/post.png)  
+![Footer](https://github.com/coderiders22/Init-to-win-it/blob/2ba57f8f5a4ed5b7a65e9ebd0ff0b1cf58b075ff/Skyscore%20Platform/assets/screenshots/Footer.png)  
 
 Features include:
 
