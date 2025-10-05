@@ -39,7 +39,333 @@
   <div class="preloaders" data-preloader>
     <div class="circle"></div>
   </div>
+<!-- Guideline Modal - Add this right after the preloader div -->
+<!-- Updated Guideline Modal with CSV Download Info -->
+<div class="modal-overlay" id="guidelineModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <img src="./assets/images/logo2.png" alt="SkyScore Logo" class="modal-logo">
+      <h3>Welcome to SkyScore</h3>
+      <button class="modal-close" id="closeModal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-description">
+        SkyScore is your data-driven platform for quantifying flight operational difficulty at United Airlines. 
+        Analyze flight-level, baggage, and passenger data to get proactive insights for smoother turnarounds, 
+        efficient resource allocation, and on-time departures.
+      </p>
+      <div class="modal-guide">
+        <h4>Quick Start Guide:</h4>
+        <ul>
+          <li><strong>Discover Insights:</strong> Click the "Discover Insights" button in the hero section below to access your full dashboard with all analytics.</li>
+          <li><strong>Check Flight Insights:</strong> Use the "Check Flight Insights" button in the navigation menu – it does the same thing as "Discover Insights" and takes you straight to the dashboard for detailed flight difficulty scores and trends.</li>
+          <li><strong>Download Data:</strong> Once in the dashboard, use the "Download CSV Data" button to get the full dataset (skyscore_test_inittowinit.csv) for your own analysis.</li>
+          <li><strong>Explore More:</strong> Scroll down to learn about our features in the About and Analysis sections.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" id="gotItBtn">Got It! Let's Fly</button>
+    </div>
+  </div>
+</div>
+<style>
+  /* Guideline Modal Styles - Attractive, Unique, Professional */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(96, 165, 250, 0.4)); /* Dynamic blue gradient */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.5s ease-out;
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #ffffff, #f0f9ff); /* Subtle glass-morphism gradient */
+  border-radius: 20px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05); /* Modern shadow */
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  animation: modalSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+@keyframes modalSlideIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95) translateY(-30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1) translateY(0); 
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+  position: relative;
+}
+
+.modal-header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #60A5FA, transparent);
+}
+
+.modal-logo {
+  width: 50px;
+  height: 50px;
+
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.modal-header h3 {
+  color: #1E3A8A;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(30, 58, 138, 0.1);
+}
+
+.modal-close {
+  background: rgba(30, 58, 138, 0.1);
+  border: none;
+  font-size: 1.8rem;
+  color: #1E3A8A;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(30, 58, 138, 0.2);
+  transform: rotate(90deg);
+  color: #60A5FA;
+}
+
+.modal-body {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.modal-description {
+  color: #1E40AF;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  background: rgba(96, 165, 250, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid #60A5FA;
+}
+
+.modal-guide {
+  background: linear-gradient(135deg, rgba(191, 219, 254, 0.5), rgba(239, 246, 255, 0.8));
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1rem;
+  box-shadow: inset 0 2px 4px rgba(30, 58, 138, 0.05);
+}
+
+.modal-guide h4 {
+  color: #1E3A8A;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.modal-guide h4::after {
+  content: '✈';
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: fly 2s ease-in-out infinite;
+}
+
+@keyframes fly {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(10px); }
+}
+
+.modal-guide ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-guide li {
+  color: #1E40AF;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.modal-guide li:hover {
+  color: #60A5FA;
+}
+
+.modal-guide li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #60A5FA;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.modal-guide li:hover::before {
+  transform: scale(1.2);
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(96, 165, 250, 0.2);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), transparent);
+}
+
+.modal-footer .btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #60A5FA, #1E3A8A);
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-footer .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.modal-footer .btn-primary:hover::before {
+  left: 100%;
+}
+
+.modal-footer .btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .modal-header h3 {
+    margin-left: 0;
+  }
+
+  .modal-guide h4::after {
+    display: none;
+  }
+
+  .modal-description {
+    font-size: 0.95rem;
+  }
+
+  .modal-guide li {
+    font-size: 0.9rem;
+  }
+}
+</style>
+
+<!-- Modal Script - Add before closing </body> -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('guidelineModal');
+    const closeBtn = document.getElementById('closeModal');
+    const gotItBtn = document.getElementById('gotItBtn');
+
+    // Show modal on page load
+    modal.style.display = 'flex';
+
+    // Close modal functions
+    function closeModal() {
+      modal.style.opacity = '0';
+      setTimeout(() => { modal.style.display = 'none'; modal.style.opacity = '1'; }, 300);
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    gotItBtn.addEventListener('click', closeModal);
+
+    // Close on overlay click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Optional: Auto-close after 12 seconds
+    setTimeout(closeModal, 12000);
+  });
+</script>
   <header class="header" data-header>
     <div class="container">
       <a href="#" class="logo">
@@ -57,12 +383,7 @@
         </div>
         <div class="nav-right">
         <ul class="navbar-list">
-          <li class="navbar-item logged-in">
-            <a href="index.html" class="navbar-link title-md">Home</a>
-          </li>
-          <li class="navbar-item logged-in">
-            <a href="about.html" class="navbar-link title-md">About</a>
-          </li>
+       
           <!-- <li class="navbar-item logged-in"> -->
             <!-- <a href="dashboard.html" class="navbar-link title-md">Dashboard</a>
           </li> -->
@@ -183,14 +504,14 @@
                 </li>
                 <li>
                   <div class="card-icon">
-                    <img src="./assets/images/1.png" width="250" height="250" loading="lazy" alt="Healthy Lung Waveform">
+                    <img src="./assets/images/1.jpeg" width="250" height="250" loading="lazy" alt="Healthy Lung Waveform">
                 
                     <div class="listing-card" data-reveal="bottom">
                         
                         <div>
-                            <h3 class="headline-sm card-title">On-time Performance</h3>
+                            <h3 class="headline-sm card-title">Flight Data Insight</h3>
                             <p class="card-text">
-                              Analyze delays and departures to identify operational bottlenecks.
+                              Most flights depart on time, but some have high delays.
                             </p>
                         </div>
                     </div>
@@ -198,14 +519,14 @@
                 </li>
                 <li>
                   <div class="card-icon">
-                    <img src="./assets/images/2.png" width="250" height="250" loading="lazy" alt="Diseased Lung Waveform">
+                    <img src="./assets/images/2.jpeg" width="250" height="250" loading="lazy" alt="Diseased Lung Waveform">
                
                     <div class="listing-card" data-reveal="bottom">
                         
                         <div>
-                            <h3 class="headline-sm card-title">Passenger & Baggage Load</h3>
+                            <h3 class="headline-sm card-title">Airports Data Insight</h3>
                             <p class="card-text">
-                              Compare passenger loads and baggage ratios to understand flight complexity.
+                              Most airports in the dataset are from Canada (CA) and Papua New Guinea (PG).
                             </p>
                             
                         </div>
@@ -214,14 +535,14 @@
                 </li>
                 <li>
                   <div class="card-icon">
-                    <img src="./assets/images/3.png" width="300" height="300" loading="lazy" alt="Statistical Graph">
+                    <img src="./assets/images/5.jpeg" width="300" height="300" loading="lazy" alt="Statistical Graph">
                
                     <div class="listing-card" data-reveal="bottom">
                         
                         <div>
-                            <h3 class="headline-sm card-title">Difficulty Score Trends</h3>
+                            <h3 class="headline-sm card-title">SSR Data Insight</h3>
                             <p class="card-text">
-                              Visualize daily rankings and categories of flights: Easy, Medium, Difficult.
+                              'Airport Wheelchair' is the most common special request, followed by 'Unaccompanied Minor'.
                             </p>
                            
                         </div>
@@ -382,26 +703,26 @@
     </div>
   </footer>
   <style>
-    .navbar-link.active {
-      color: #fff;          /* White text */
-      background: #007bff;  /* Blue background */
-      border-radius: 5px;
-      padding: 5px 10px;
+  .navbar-link.active {
+    color: #fff;          /* White text */
+    background: #007bff;  /* Blue background */
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+</style>
+
+<script>
+  // Get current page name
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Loop over all links and add "active" to the current one
+  document.querySelectorAll(".navbar-link").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
     }
-  </style>
-  
-  <script>
-    // Get current page name
-    const currentPage = window.location.pathname.split("/").pop();
-  
-    // Loop over all links and add "active" to the current one
-    document.querySelectorAll(".navbar-link").forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
-        link.classList.add("active");
-      }
-    });
-  </script>
-  
+  });
+</script>
+
 
   
 
