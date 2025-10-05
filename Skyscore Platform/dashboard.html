@@ -92,6 +92,9 @@
             <a href="about.html" class="navbar-link title-md">About</a>
           </li>
           <li class="navbar-item logged-out">
+            <a href="dashboard.html" class="navbar-link title-md">Dashboard</a>
+          </li>
+          <!-- <li class="navbar-item logged-out">
             <a href="login.html" class="navbar-link title-md">Login</a>
           </li>
           
@@ -101,7 +104,7 @@
           </li>
           <li class="navbar-item logged-out">
             <a href="signup.html"  class="btn has-before title-md">Check your Health</a>
-          </li>
+          </li> -->
         </ul>
         <ul class="social-list">
           <!-- Social Links -->
@@ -148,174 +151,242 @@
 
   <section class="dashboard">
     <div class="container">
-      <img src="assets/videos/6.gif" alt="Animated Icon" class="animated-icon">
-      <h2>Dashboard: <span id="username"></span></h2>
-      <p class="ps">Check Your Health</p>
-      <form id="healthCheckForm">
-        <div class="form-group">
-          <label for="audioFile"><i class="fas fa-upload"></i> Upload Your Audio File</label>
-          <input type="file" id="audioFile" name="audioFile" required>
+      <div class="dashboard-header">
+        <img src="assets/videos/6.gif" alt="Animated Icon" class="animated-icon">
+        <h2>SkyScore Analytics Dashboard</h2>
+        <p class="ps">Unlock Insights for Smarter Flight Operations</p>
+      </div>
+      
+      <div class="metrics-grid">
+        <!-- Departure Delays Card -->
+        <div class="metric-card">
+          <h3>Departure Delays Analysis</h3>
+          <p><strong>Average Departure Delay:</strong> 21.18 min</p>
+          <p><strong>Percentage of Flights Departing Late:</strong> 49.61%</p>
+          <img src="assets/images/q1-histogram.png" alt="Distribution of Departure Delays" class="chart-img">
         </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-primary" id="testButton" disabled>Test</button>
-          <button type="button" class="btn btn-secondary" id="logoutButton">Logout</button>
+        
+        <!-- Critical Ground Time Card -->
+        <div class="metric-card">
+          <h3>Critical Ground Time</h3>
+          <p><strong>Flights with Critical/Low Ground Time:</strong> 652 (8.1%)</p>
+          <img src="assets/images/q2-pie.png" alt="Flights with Critical Ground Time" class="chart-img">
         </div>
-      </form>
+        
+        <!-- Baggage Transfer Ratio Card -->
+        <div class="metric-card">
+          <h3>Baggage Transfer Ratio</h3>
+          <p><strong>Average Transfer Bags / Total Bags Ratio:</strong> 0.74</p>
+          <img src="assets/images/q3-boxplot.png" alt="Transfer Bags / Total Bags Ratio" class="chart-img">
+        </div>
+        
+        <!-- Passenger Load vs Delay Card -->
+        <div class="metric-card">
+          <h3>Passenger Load vs Delay</h3>
+          <p><strong>Correlation:</strong> 0.02</p>
+          <img src="assets/images/q4-scatter.png" alt="Passenger Load vs Departure Delay" class="chart-img">
+        </div>
+        
+        <!-- SSR vs Delay per Passenger Card -->
+        <div class="metric-card">
+          <h3>Special Service Requests vs Delay</h3>
+          <p><strong>Correlation:</strong> -0.08</p>
+          <img src="assets/images/q5-scatter.png" alt="Special Service Requests vs Delay per Passenger" class="chart-img">
+        </div>
+      </div>
+      
+      <div class="dashboard-actions">
+        <a href="data.csv" download="skyscore_flight_data.csv" class="btn btn-primary">Download CSV Data</a>
+
+      </div>
     </div>
   </section>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const audioFileInput = document.getElementById("audioFile");
-      const testButton = document.getElementById("testButton");
-      const logoutButton = document.getElementById("logoutButton");
-  
-      // Disable the "Test" button initially
-      testButton.disabled = true;
-  
-      // Enable the "Test" button only when a valid .wav file is uploaded
-      audioFileInput.addEventListener("change", function () {
-        const file = audioFileInput.files[0];
-  
-        if (file) {
-          // Get the file extension
-          const fileExtension = file.name.split('.').pop().toLowerCase();
-  
-          if (fileExtension === 'wav') {
-            // Enable the Test button
-            testButton.disabled = false;
-          } else {
-            alert("Only .wav files are allowed!");
-            audioFileInput.value = ""; // Clear the input
-            testButton.disabled = true; // Keep the Test button disabled
-          }
-        } else {
-          testButton.disabled = true; // Disable the button if no file is selected
-        }
-      });
-  
-      // Redirect to the home page on logout
-      logoutButton.addEventListener("click", function () {
-        window.location.href = "index.html"; // Replace 'home.html' with your actual home page URL
-      });
-    });
-  </script>
-  
-<style>
-    /* Dashboard Section */
-.dashboard {
-  padding: 4rem 0;
-  background: linear-gradient(to bottom, #362f13, #d07474) padding-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ps {
-    text-align: center;
-}
+  <style>
+    
+    .dashboard {
+      padding: 4rem 0;
+      background: linear-gradient(to bottom, rgba(30, 58, 138, 0.7), rgba(96, 165, 250, 0.4));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      margin-top: 80px; /* Added to prevent navbar overlap */
+    }
 
-.dashboard h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: #E63946;
-  position: relative;
-}
+    .dashboard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(30, 58, 138, 0.2));
+      z-index: 0;
+      pointer-events: none;
+    }
 
-.dashboard h2::after {
-  content: '';
-  width: 50px;
-  height: 3px;
-  background-color: #E63946;
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-}
+    .dashboard > .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1200px;
+      padding: 1rem;
+    }
 
-.dashboard .container {
-  background: #f5f5f5;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  margin-top: 140px;
-}
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-.dashboard form {
-  width: 100%;
-  max-width: 500px;
-  background-color: #f4f6f9;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  animation: slideUp 1s ease-out;
-}
+    .ps {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
 
-.dashboard .form-group {
-  margin-bottom: 1.5rem;
-}
+    .dashboard h2 {
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
 
-.dashboard .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #121211;
-}
+    .dashboard h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #BFDBFE, #60A5FA);
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
 
-.dashboard .form-group input[type="file"] {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #ce1c1c;
-  border-radius: 8px;
-  transition: border-color 0.3s ease;
-}
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
 
-.dashboard .form-group input[type="file"]:focus {
-  border-color: #f29810;
-  outline: none;
-}
+    .metric-card {
+      background: rgba(239, 246, 255, 0.95);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(191, 219, 254, 0.6);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
 
-.dashboard .btn-primary {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  background-color: #1e3c72;
-  color: #fff;
-  transition: all 0.3s ease;
-}
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    }
 
-.dashboard .btn-primary:hover {
-  background-color: #ffdd57;
-  color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .metric-card h3 {
+      color: #1E3A8A;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-family: var(--ff-oswald);
+    }
 
-.dashboard .btn-secondary {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
-  background-color: #d07474;
-  color: #fff;
-  transition: all 0.3s ease;
-}
+    .metric-card p {
+      color: #2563EB;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
 
-.dashboard .btn-secondary:hover {
-  background-color: #ffdd57;
-  color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .chart-img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-</style>  
+    /* Actions */
+    .dashboard-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
+    .dashboard-actions .btn {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      font-weight: var(--fw-700);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      min-width: 150px;
+    }
 
+    .dashboard-actions .btn-primary {
+      background: linear-gradient(to right, #2563EB, #60A5FA);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .dashboard-actions .btn-primary:hover {
+      background: linear-gradient(to right, #1E40AF, #3B82F6);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+    }
+
+    .dashboard-actions .btn-secondary {
+      border: 2px solid #BFDBFE;
+      background: transparent;
+      color: #2563EB;
+    }
+
+    .dashboard-actions .btn-secondary:hover {
+      background: linear-gradient(to right, #BFDBFE, #DBEAFE);
+      color: #1E3A8A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dashboard {
+        margin-top: 60px; /* Adjust for mobile navbar */
+      }
+      
+      .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .dashboard h2 {
+        font-size: 2rem;
+      }
+      
+      .dashboard-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .dashboard-actions .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .chart-img {
+        height: 180px;
+      }
+    }
+  </style>
 
 
       <!-- 
@@ -418,5 +489,26 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
+
+  <style>
+  .navbar-link.active {
+    color: #fff;          /* White text */
+    background: #007bff;  /* Blue background */
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+</style>
+
+<script>
+  // Get current page name
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Loop over all links and add "active" to the current one
+  document.querySelectorAll(".navbar-link").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
 
 </html>

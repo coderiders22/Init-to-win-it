@@ -36,3 +36,28 @@ document.getElementById("loginButton").addEventListener("click", login);
 
 // And logout like this:
 document.getElementById("logoutButton").addEventListener("click", logout);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Example: check if user is logged in
+    const isLoggedIn = localStorage.getItem("loggedIn"); 
+
+    if (isLoggedIn === "true") {
+      document.querySelectorAll(".logged-in").forEach(el => el.style.display = "block");
+      document.querySelectorAll(".logged-out").forEach(el => el.style.display = "none");
+    } else {
+      document.querySelectorAll(".logged-in").forEach(el => el.style.display = "none");
+      document.querySelectorAll(".logged-out").forEach(el => el.style.display = "block");
+    }
+  });
+
+  // Example: login function
+  function login() {
+    localStorage.setItem("loggedIn", "true");
+    location.reload(); // refresh to update navbar
+  }
+
+  // Example: logout function
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    location.reload();
+  }

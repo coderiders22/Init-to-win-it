@@ -496,6 +496,27 @@
   
       </div>
     </footer>
+    <style>
+      .navbar-link.active {
+        color: #fff;          /* White text */
+        background: #007bff;  /* Blue background */
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+    </style>
+    
+    <script>
+      // Get current page name
+      const currentPage = window.location.pathname.split("/").pop();
+    
+      // Loop over all links and add "active" to the current one
+      document.querySelectorAll(".navbar-link").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    </script>
+    
   
 
   <!-- 
