@@ -1589,3 +1589,12 @@ video, .video-container {
     align-items: center;
   }
 }
+.navbar-item a.btn {
+  display: inline-block !important;
+}
+
+@media (max-width: 768px) {
+  .navbar .navbar-item {
+    display: block !important;
+  }
+}
